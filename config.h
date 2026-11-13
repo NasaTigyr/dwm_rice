@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -13,11 +13,15 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_green[]        = "#006400";
+static const char col_green[]       = "#00ff00";
+static const char col_soft_green[]       = "#006600";
+static const char col_red[]         = "#ff0000";
+//003300
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_green,  col_green  },
+	[SchemeSel]  = { col_gray4, col_soft_green ,  col_green  },
 };
 
 /* tagging */
@@ -128,6 +132,15 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+  /* Focus nth monitor */
+  { MODKEY|ControlMask, XK_0, focusnthmon, {.ui = 0} },
+  { MODKEY|ControlMask, XK_1, focusnthmon, {.ui = 1} },
+  { MODKEY|ControlMask, XK_2, focusnthmon, {.ui = 2} },
+
+  /* Move window to nth monitor */
+  { MODKEY|ShiftMask|ControlMask, XK_0, tagnthmon, {.ui = 0} },
+  { MODKEY|ShiftMask|ControlMask, XK_1, tagnthmon, {.ui = 1} },
+  { MODKEY|ShiftMask|ControlMask, XK_2, tagnthmon, {.ui = 2} },
 };
 
 /* button definitions */
