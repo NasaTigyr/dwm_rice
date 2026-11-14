@@ -1,4 +1,4 @@
-dwm - dynamic window manager
+My rice for DWM - Dynamic Window Manager by Suckless.org
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
 
@@ -46,3 +46,53 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+
+Control keybinds
+-------------
+
+Modkey - Alt
+
+Launching
+Alt + p                      - open rofi (dmenu is also configured, change as you like)
+Alt + Shift + Enter          - spawn terminal (st)
+Alt + Shift + c              - close focused window
+Alt + Shift + q              - quit dwm
+
+Windows
+Alt + j/k                    - focus next/previous window
+Alt + Enter                  - swap focused window with master
+Alt + i/d                    - add/remove a window in the master area
+Alt + h/l                    - shrink/grow the master area
+Alt + Shift + Space          - toggle focused window floating/tiled
+Alt + b                      - show/hide bar
+
+Layouts
+Alt + t                      - tile (default)
+Alt + f                      - floating
+Alt + m                      - monocle (one window at a time, fullscreen)
+Alt + u                      - centered master, others tiled around it
+Alt + o                      - centered floating master
+Alt + Space                  - toggle between current and previous layout
+
+Tags
+Alt + 1-9                    - view tag
+Alt + Tab                    - switch between current and previous tag
+Alt + Shift + 1-9            - move focused window to tag
+Alt + Control + 1-9          - add/remove tag from current view (view multiple tags)
+Alt + Shift + Control + 1-9  - add/remove tag on focused window (show it on several tags)
+Alt + 0                      - view all tags at once
+Alt + Shift + 0              - show focused window on all tags
+
+Monitors
+Alt + , / .                  - focus previous/next monitor
+Alt + Shift + , / .          - move focused window to previous/next monitor
+Super + 0/1/2                - focus monitor 1/2/3
+Super + Shift + 0/1/2        - move focused window to monitor 1/2/3
+
+Gaps
+Alt + -  / Alt + =           - decrease / increase gaps
+Alt + Shift + =              - reset gaps to default
+
+Media keys
+Volume up/down/mute, brightness up/down (no modifier)

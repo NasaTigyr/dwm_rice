@@ -70,6 +70,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define SUPKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -132,15 +133,16 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
   /* Focus nth monitor */
-  { MODKEY|ControlMask, XK_0, focusnthmon, {.ui = 0} },
-  { MODKEY|ControlMask, XK_1, focusnthmon, {.ui = 1} },
-  { MODKEY|ControlMask, XK_2, focusnthmon, {.ui = 2} },
+  { SUPKEY, XK_0, focusnthmon, {.ui = 0} },
+  { SUPKEY, XK_1, focusnthmon, {.ui = 1} },
+  { SUPKEY, XK_2, focusnthmon, {.ui = 2} },
 
   /* Move window to nth monitor */
-  { MODKEY|ShiftMask|ControlMask, XK_0, tagnthmon, {.ui = 0} },
-  { MODKEY|ShiftMask|ControlMask, XK_1, tagnthmon, {.ui = 1} },
-  { MODKEY|ShiftMask|ControlMask, XK_2, tagnthmon, {.ui = 2} },
+  { SUPKEY|ShiftMask, XK_0, tagnthmon, {.ui = 0} },
+  { SUPKEY|ShiftMask, XK_1, tagnthmon, {.ui = 1} },
+  { SUPKEY|ShiftMask, XK_2, tagnthmon, {.ui = 2} },
 };
 
 /* button definitions */

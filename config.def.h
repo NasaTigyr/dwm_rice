@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -13,11 +13,15 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_green[]        = "#006400";
+static const char col_green[]       = "#00ff00";
+static const char col_soft_green[]       = "#006600";
+static const char col_red[]         = "#ff0000";
+//003300
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_green,  col_green  },
+	[SchemeSel]  = { col_gray4, col_soft_green ,  col_green  },
 };
 
 /* tagging */
@@ -66,14 +70,12 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define SUPKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
-        { ALTMOD,                       KEY,      focusnthmon,    {.i  = TAG } }, \
-        { ALTMOD|ShiftMask,             KEY,      tagnthmon,      {.i  = TAG } },
-
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -131,6 +133,16 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+  /* Focus nth monitor */
+  { SUPKEY, XK_0, focusnthmon, {.ui = 0} },
+  { SUPKEY, XK_1, focusnthmon, {.ui = 1} },
+  { SUPKEY, XK_2, focusnthmon, {.ui = 2} },
+
+  /* Move window to nth monitor */
+  { SUPKEY|ShiftMask, XK_0, tagnthmon, {.ui = 0} },
+  { SUPKEY|ShiftMask, XK_1, tagnthmon, {.ui = 1} },
+  { SUPKEY|ShiftMask, XK_2, tagnthmon, {.ui = 2} },
 };
 
 /* button definitions */
